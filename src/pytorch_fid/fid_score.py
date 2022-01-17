@@ -87,6 +87,7 @@ class ImagePathDataset(torch.utils.data.Dataset):
         # npy file
         arr = np.load(path)
         img = Image.fromarray(arr) #open npy array
+        
         if self.transforms is not None:
             img = self.transforms(img)
         return img
@@ -116,6 +117,7 @@ def get_activations(files, model, batch_size=50, dims=2048, device='cpu',
     model.eval()
 
     if batch_size > len(files):
+        print(len(files))
         print(('Warning: batch size is bigger than the data size. '
                'Setting batch size to data size'))
         batch_size = len(files)
