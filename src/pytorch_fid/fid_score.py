@@ -117,9 +117,8 @@ def get_activations(files, model, batch_size=50, dims=2048, device='cpu',
     model.eval()
 
     if batch_size > len(files):
-        print(('Warning: batch size is bigger than the data size. Hi'
+        print(('Warning: batch size is bigger than the data size. '
                'Setting batch size to data size'))
-        print((len(files)))
         batch_size = len(files)
 
     dataset = ImagePathDataset(files, transforms=TF.ToTensor())
